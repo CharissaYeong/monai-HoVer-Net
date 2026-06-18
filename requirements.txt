@@ -1,0 +1,19 @@
+# --- Core Deep Learning Framework ---
+torch>=2.2.0,<=2.3.0
+torchvision>=0.17.0,<=0.18.0
+
+# --- Medical AI and Imaging Infrastructure ---
+# Bundle flag includes the ConfigParser engine needed for NuClick without bloat
+monai[bundle]>=1.3.0
+
+# --- Pathology Whole Slide Image (WSI) Parsing ---
+openslide-python>=1.3.0
+
+# --- AWS Infrastructure Integration ---
+boto3>=1.34.0
+botocore>=1.34.0
+
+# --- Data Science and Matrix Normalization ---
+numpy>=1.24.0,<2.0.0
+scikit-image>=0.22.0
+scipy>=1.12.0

@@ -1,0 +1,17 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: pathology-inference-autoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: pathology-inference-worker
+  minReplicaCount: 0  # Scales completely down to zero when idle
+  maxReplicaCount: 10 # Cap parallel compute capacity
+  triggers:
+    - type: aws-sqs-queue
+      metadata:
+        queueURL: {{ .Values.config.sqsQueueUrl }}
+        awsRegion: {{ .Values.config.awsRegion }}
+        queueLength: "1" # Target 1 pod per queued whole slide image

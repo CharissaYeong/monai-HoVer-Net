@@ -1,0 +1,23 @@
+image:
+  repository: "123456789012.dkr.ecr.ap-southeast-1.amazonaws.com/monai-pathology-service"
+  tag: "latest"
+  pullPolicy: Always
+
+config:
+  awsRegion: "ap-southeast-1"
+  inputBucket: "monai-pathology-storage"
+  dynamoDbTable: "monai-pathology-pathology-nuclei-data"
+  sqsQueueUrl: "https://sqs.ap-southeast-1.amazonaws.com/123456789012/image-processing-queue"
+
+resources:
+  limits:
+    nvidia.com/gpu: "1" # Dedicated pass-through access to a host GPU instance
+    cpu: "4"
+    memory: "16Gi"
+  requests:
+    nvidia.com/gpu: "1"
+    cpu: "2"
+    memory: "8Gi"
+
+nodeSelector:
+  k8s.amazonaws.com/accelerator: nvidia-tesla-g5
