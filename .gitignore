@@ -42,3 +42,34 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 # planout
+
+# --- Local Model Weights & MONAI Bundles ---
+# Prevents giant downloaded model weights and configurations from hitting Git
+bundle/
+*.pt
+*.pth
+*.tar.gz
+*.zip
+
+# --- Local Test Infrastructure Data ---
+# Ignores the folder containing your local test images/masks
+test_image/
+output_cell.png
+
+# --- Python Environment & Build Artifacts ---
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# --- Operating System Garbage ---
+.DS_Store
+Thumbs.db
+
+# --- Terraform Local State (Don't push cloud secrets) ---
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
