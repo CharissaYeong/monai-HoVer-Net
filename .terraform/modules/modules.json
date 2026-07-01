@@ -1,1 +1,0 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"data_table","Source":"registry.terraform.io/terraform-aws-modules/dynamodb-table/aws","Version":"4.4.0","Dir":".terraform/modules/data_table"},{"Key":"images_bucket","Source":"registry.terraform.io/terraform-aws-modules/s3-bucket/aws","Version":"5.14.0","Dir":".terraform/modules/images_bucket"}]}
